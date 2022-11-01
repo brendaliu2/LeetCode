@@ -1,14 +1,14 @@
 let twoSum = (nums, target) => {
-  const differences = {};
+  const pairs = {};
 
   for (let i = 0; i < nums.length; i++) {
-    differences[nums[i]] = i;
-  }
+    let num = nums[i];
+    let difference = target - num;
 
-  for(let i = 0; i < nums.length; i++) {
-    let difference = target - nums[i];
-    if(differences[difference] !== undefined && i !== differences[difference]) {
-      return [i, differences[difference]];
+    if(pairs[difference] !== undefined) {
+      return [i, pairs[difference]];
+    } else {
+      pairs[num] = i;
     }
   }
 };
